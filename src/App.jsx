@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import reactLogo from './assets/react.svg';
 import logo from './assets/logo.png';
 import matin from './assets/matinlivingroom.jpeg';
 import midi from './assets/midilivingroom.jpeg';
@@ -16,6 +15,9 @@ import soirkitchen from './assets/soirkitchen.jpeg';
 import matinbg from './assets/matinbg.jpeg';
 import midibg from './assets/midibg.jpeg';
 import soirbg from './assets/soirbg.jpeg';
+import barsep from './assets/barsep.png';
+import insta from './assets/insta.png';
+import youtube from './assets/youtube.png';
 import './App.css';
 
 const services = [
@@ -29,11 +31,37 @@ const services = [
   { name: 'Aerial Photography + Videography', price: 500.00 }
 ];
 
+const discounts = [
+  { name: 'Summer Special', description: 'Get 20% off on all services during the summer season!', percentage: 20 },
+  { name: 'Referral Discount', description: 'Refer a friend and receive a 15% discount on your next booking!', percentage: 15 },
+  { name: 'First-Time Client', description: 'New clients enjoy a 10% discount on their first service!', percentage: 10 },
+  { name: 'Bulk Booking', description: 'Book 3 or more services and get a 25% discount on the total cost!', percentage: 25 },
+  { name: 'Holiday Offer', description: 'Celebrate the holidays with a 30% discount on all services!', percentage: 30 }
+];
+
+// Function to get the current week number
+const getWeekNumber = () => {
+  const currentDate = new Date();
+  const startOfYear = new Date(currentDate.getFullYear(), 0, 1);
+  const pastDaysOfYear = (currentDate - startOfYear) / 86400000;
+  return Math.ceil((pastDaysOfYear + startOfYear.getDay() + 1) / 7);
+};
+
+// Function to get the discount for the current week
+const getWeeklyDiscount = () => {
+  const weekNumber = getWeekNumber();
+  const discountIndex = weekNumber % discounts.length;
+  return discounts[discountIndex];
+};
+
 const App = () => {
   // Initialize state for main div style
   const [mainStyle, setMainStyle] = useState({
     backgroundImage: `url(${matin})`,
   });
+
+  const currentDiscount = getWeeklyDiscount();
+
   // Initialize state for section1 div style
   const [section1Style, setSection1Style] = useState({
     backgroundImage: `url(${mbmatin})`,
@@ -46,7 +74,7 @@ const App = () => {
 
   // Initialize state for background style
   const [backgroundStyle, setBackgroundStyle] = useState({
-    backgroundImage: `url(${matinbg})`,
+    background: 'linear-gradient(to bottom, rgb(173, 216, 230) 0%, rgb(255, 228, 196) 100%)',
     backgroundAttachment: 'fixed',
   });
 
@@ -111,6 +139,14 @@ const App = () => {
   const changeSection2BackgroundImage = (image) => {
     setSection2Style({
       ...section2Style,
+      backgroundImage: `url(${image})`,
+    });
+  };
+
+  // Function to change the background image for the section3 div
+  const changeSection3BackgroundImage = (image) => {
+    setSection3Style({
+      ...section3Style,
       backgroundImage: `url(${image})`,
     });
   };
@@ -185,6 +221,7 @@ const App = () => {
             changeMainBackgroundImage(matin);
             changeSection1BackgroundImage(mbmatin); // Change section1 background image for Matin theme
             changeSection2BackgroundImage(matinkitchen); // Change section2 background image for Matin theme
+            changeSection3BackgroundImage(matinbg); // Change section3 background image for Matin theme
           }}>Matin</button>
           <button className='midiButton' onClick={() => {
             changeBackgroundColor(
@@ -195,6 +232,7 @@ const App = () => {
             changeMainBackgroundImage(midi);
             changeSection1BackgroundImage(mbmidi); // Change section1 background image for Midi theme
             changeSection2BackgroundImage(midikitchen); // Change section2 background image for Midi theme
+            changeSection3BackgroundImage(midibg); // Change section3 background image for Midi theme
           }}>Midi</button>
           <button className='soirButton' onClick={() => {
             changeBackgroundColor(
@@ -205,51 +243,80 @@ const App = () => {
             changeMainBackgroundImage(soir);
             changeSection1BackgroundImage(mbsoir); // Change section1 background image for Soir theme
             changeSection2BackgroundImage(soirkitchen); // Change section2 background image for Soir theme
+            changeSection3BackgroundImage(soirbg); // Change section3 background image for Soir theme
           }}>Soir</button>
         </div>
       </div>
+
+      <div className='opening'>    
+      <p className='subtitle'>
+      <h1 className='title'>Welcome to Maisonova</h1>
+        <p span className="cool2">Transform Your Listings with Breathtaking Visuals!</p>
+        <p span className="cool2">Unlock the full potential of your properties with our premium services.</p>
+        <p span className="cool2">Serving Realtors in DC, MD, and VA. Elevate your marketing game and captivate your audience today!</p>
+        <button className='serBut'>Services</button>
+      </p>
+      <div className='discounts'>
+      {/* <h3>Weekly Special</h3> */}
+      {/* <h3>{currentDiscount.name}</h3> */}
+      <p>{currentDiscount.description}</p>
       
-      <div className='wrapper'>
+      </div>
+      </div>
+      
+      {/* <div className='wrapper'> */}
         <div className='main' style={mainStyle}>
           <div className='text1'>
             <h1>Showcase Your Home</h1>
-            <p>Elevate your home with stunning visuals</p>
-            <button>Book Now</button>
+            <p span className="cool2">Elevate your home with stunning visuals</p>
+            <button className='bookbut'>Book Now</button>
           </div>
         </div>
+      {/* </div> */}
+
+      <div className='wrapper1'>
+      <img src={barsep} alt="bar" className='bar' />
       </div>
+
       <div className='title1'>
         <div className='title1cover'>
       <p className='elegant'>Our Signature Offerings...</p>
       </div>
+      <div className='smallTalk'>
+      <p span className="cool2"><b>Transform Your Listings with AI-Powered Photography!</b>
+           <p>Elevate your property photos to the next level with our AI technology:</p>
+           Flawless Shots: AI ensures perfect angles and lighting for every photo.
+           Advanced Editing: Enhance colors and details for stunning images.
+           Scene Selection: Highlight your property's best features effortlessly.
+           Personalized Tips: Get staging advice to maximize appeal</p>
+        </div>
       </div>
 
       <div className='wrapper'>
         {/* <div className='services'> */}
           <div className='section1' style={section1Style}>
             <div className='text2'>
-              <img width="200" height="200" src={townhouse} alt="Video" />
-              <h3>Traditional Imagery</h3>
-              <p>Expertly crafted home photography to showcase your property's timeless beauty and charm.</p>
+              <img width="300" height="300" src={townhouse} alt="Video" />
+              {/* <h3>Traditional Imagery</h3>
+              <p>Expertly crafted home photography to showcase your property's timeless beauty and charm.</p> */}
             </div>
             <div className='text2'>
-              <img width="200" height="200" src={crosssection} alt="Video" />
-              <h3>3D Floor Plans</h3>
-              <p>Innovative 3D floor plans to provide a comprehensive and immersive view of your property's layout.</p>            
+              <img width="300" height="300" src={crosssection} alt="Video" />
+              {/* <h3>3D Floor Plans</h3>
+              <p>Innovative 3D floor plans to provide a comprehensive and immersive view of your property's layout.</p>             */}
               </div>
             <div className='text2'>
-              <img width="200" height="200" src={aerial} alt="Video" />
-              <h3>Aerial Photography</h3>
-              <p>Stunning aerial photography to capture breathtaking views and unique perspectives of your property.</p>            
+              <img width="300" height="300" src={aerial} alt="Video" />
+              {/* 3<p>Stunning aerial photography to capture breathtaking views and unique perspectives of your property.</p>             */}
               </div>
           </div>
         </div>
       {/* </div> */}
 
-      <div className='wrapper'>
+      {/* <div className='wrapper'> */}
         {/* <div className='services'> */}
       <div className='section2' style={section2Style}>
-      <div className='text2'>
+      <div className='text3'>
           {/* <img width="200" height="200" src={townhouse} alt="Traditional Imagery" /> */}
           <h3>Traditional Imagery</h3>
           <p>Expertly crafted home photography to showcase your property's timeless beauty and charm.</p>
@@ -261,7 +328,7 @@ const App = () => {
             <li>50 Photos (3001-5000 sq. ft): $239.00</li>
           </ul>
         </div>
-        <div className='text2'>
+        <div className='text3'>
           {/* <img width="200" height="200" src={crosssection} alt="3D Floor Plans" /> */}
           <h3>3D Floor Plans</h3>
           <p>Innovative 3D floor plans to provide a comprehensive and immersive view of your property's layout.</p>
@@ -271,7 +338,7 @@ const App = () => {
             <li>3D Matterport (up to 2000 sq. ft): $200.00</li>
           </ul>
         </div>
-        <div className='text2'>
+        <div className='text3'>
           {/* <img width="200" height="200" src={aerial} alt="Aerial Photography" /> */}
           <h3>Aerial Photography</h3>
           <p>Stunning aerial photography to capture breathtaking views and unique perspectives of your property.</p>
@@ -282,13 +349,17 @@ const App = () => {
           </ul>
         </div>
       </div>
-      </div>
       {/* </div> */}
+      {/* </div> */}
+
+      <div className='wrapper1'>
+      <img src={barsep} alt="bar" className='bar' />
+      </div>
 
       <div className='wrapper'>
       {/* <div className='services'> */}
       <div className='section3' style={section3Style}>
-        <h2>Pricing</h2>
+      {/* <h2><span className="cool">Contact Us:</span></h2>           */}
         <form onSubmit={handleSubmit} className="service-form">
           <h3>Contact Information</h3>
           <div className="form-row">
@@ -333,10 +404,20 @@ const App = () => {
       </div>
       {/* </div> */}
 
+      <div className='wrapper2'>
+        <img src={logo} alt="logo" style={{ height: "400px"}} />
+        <div className='social'>
+          <img src={insta} alt="Instagram" />
+          <img src={youtube} alt="YouTube" />
+          </div>
+      </div>
+
       {/* Footer */}
       
       <footer style={footerStyle} className="footer">
-        <p>© 2024 Your Company Name. All rights reserved.</p>
+        <p>Privacy | Terms & Conditions</p>
+        {/* <img src={logo} alt="React Logo" style={{ width: 'auto', height: '70px', display: 'block', marginBottom: '10px' }} />         */}
+        <p>© 2024 Maisonova. All rights reserved.</p>
       </footer>
     </>
   );

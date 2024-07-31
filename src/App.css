@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 55px;
   padding: 0 30px;
   background-color: white;
 }
@@ -29,8 +29,22 @@ h3 {
 }
 
 body {
-  /* background: linear-gradient(to bottom,rgb(173, 216, 230) 0%, white 100%); */
   background-attachment: fixed;
+}
+
+.opening {
+  font-family: 'Playfair Display', serif;
+  padding-left: 20px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bar {
+  display: flex;
+  width: 750px;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 .theme {
@@ -52,7 +66,6 @@ body {
 .matinButton:hover {
   background: rgb(255, 255, 224);
   color: rgb(135, 206, 235);
-  
 }
 
 .midiButton {
@@ -101,13 +114,87 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
+.wrapper2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 .services {
   border: 4px solid rgb(0, 163, 108);
+}
 
+.discounts {
+  position: relative;
+  border: 4px solid rgb(112, 41, 99);
+  height: 80px;
+  width: 80px;
+  padding: 5px;
+  background-color: rgb(210, 43, 43); /* Assuming a paper-like color */
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Adds depth */
+  transform: rotate(-1deg); /* Slightly rotates the div for a more natural look */
+  border-radius: 50%;
+  overflow: hidden;
+  animation: pulsate 3.5s infinite;
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent; /* Hide original text */
+}
+
+.discounts::before {
+  content: 'Click here';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black; /* Set the color for 'Click here' text */
+  transition: opacity 0.5s ease;
+  font-size: 14px; /* Adjust font size as needed */
+}
+
+.discounts:hover::before {
+  opacity: 0; /* Hide 'Click here' on hover */
+}
+
+.discounts:hover {
+  color: black; /* Show original text on hover */
+}
+
+.discounts:hover {
+  width: 200px; /* Adjust based on your needs */
+  height: 200px; /* Adjust based on your needs */
+  border-radius: 0;
+  animation: none;
+}
+
+.discounts h1, .discounts p, .discounts button {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.discounts:hover h1, .discounts:hover p, .discounts:hover button {
+  opacity: 1;
 }
 
 .main {
@@ -122,12 +209,12 @@ body {
   background-position: center;
   height: 70vh;
   width: 100%;
-  /* border-radius: 10px; */
-}
+  /* margin-top: -150px;  */
+;}
 
 .text1 {
   font-family: 'Playfair Display', serif;
-  border: 1px solid rgb(0, 163, 108);
+  border: 7px double white;
   background: rgba(250, 249, 246, 0.1); 
     backdrop-filter: blur(10px); 
   font-family: 'Playfair Display', serif;
@@ -135,39 +222,74 @@ body {
   font-weight: lighter;
   margin: 10px;
   padding: 10px;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+  animation: pulsate 1.5s infinite;
+  transition: all 0.5s ease;
+  cursor: pointer; /* Optional: Changes the cursor on hover */
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.text1:hover {
+  width: auto; /* Adjust based on your needs */
+  height: auto; /* Adjust based on your needs */
+  border-radius: 0;
+  animation: none;
+}
+
+.text1 h1, .text1 p, .text1 button {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.text1:hover h1, .text1:hover p, .text1:hover button {
+  opacity: 1;
 }
 
 .section1 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  /* background-image: url('/src/assets/picture.jpeg'); */
   background-size: cover;
   height: 70vh;
   width: 100%;
   background-attachment: fixed;
+  border-bottom: 4px solid rgb(0, 163, 108);
 }
 
 .section2 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  /* background-image: url('/src/assets/picture.jpeg'); */
   background-size: cover;
   height: 70vh;
   width: 100%;
   background-attachment: fixed;
+  border-bottom: 4px solid rgb(0, 163, 108);
 }
 
 .section3 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  /* background-image: url('/src/assets/picture.jpeg'); */
   background-size: cover;
   height: 70vh;
   width: 100%;
   background-attachment: fixed;
+  border-bottom: 4px solid rgb(0, 163, 108);
 }
 
 .service-form {
@@ -255,11 +377,60 @@ body {
   height: 320px;
   width: 320px;
   padding: 20px;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+  animation: pulsate 1.5s infinite;
+  transition: all 0.5s ease;
+  cursor: pointer; /* Optional: Changes the cursor on hover */
+  filter: blur(3px);
+}
+
+.text2:hover {
+  width: auto; /* Adjust based on your needs */
+  height: auto; /* Adjust based on your needs */
+  border-radius: 0;
+  animation: none;
+  filter: none;
+}
+
+.text2 h1, .text2 p, .text2 button {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.text2:hover h1, .text2:hover p, .text2:hover button {
+  opacity: 1;
+}
+
+.text3 {
+  font-family: 'avenir next', sans-serif;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(250, 249, 246, 0.1); 
+    backdrop-filter: blur(10px);
+  height: 320px;
+  width: 320px;
+  padding: 20px;
+  /* border-radius: 50%;
+  height: 80px;
+  width: 80px; */
+  /* overflow: hidden;
+  animation: pulsate 1.5s infinite;
+  transition: all 0.5s ease;
+  cursor: pointer; Optional: Changes the cursor on hover */
 }
 
 .title1 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
   border: 1px solid rgb(0, 163, 108);
-  
+  gap: 10px;
   background-image: url('/src/assets/bgabstract.jpeg');
   background-size: cover;
   background-attachment: fixed;
@@ -267,8 +438,34 @@ body {
   background-repeat: no-repeat;
 }
 
+.serBut {
+  background: rgb(0, 163, 108);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bookbut {
+  background: rgb(159, 226, 191);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cool {
+  font-family: 'MonteCarlo', sans-serif;
+}
+
+.cool2 {
+  font-family: 'Avenir Next', sans-serif;
+}
+
 .elegant {
-  border: 1px solid rgb(0, 163, 108);
+  /* border: 1px solid rgb(0, 163, 108); */
   background: rgba(250, 249, 246, 0.1); 
     backdrop-filter: blur(10px);
   justify-items: center;
@@ -279,12 +476,43 @@ body {
   justify-content: space-evenly;
   align-items: center;
   /* height: 0.01vh; */
-  width: 50%;
+  width: 100%;
   border-radius: 10px;
   /* margin-bottom: 100px; */
 }
 
+.smallTalk {
+  /* border: 1px solid rgb(0, 163, 108); */
+  background: rgba(250, 249, 246, 0.1); 
+    backdrop-filter: blur(10px);
+  justify-items: center;
+  font-family: 'avenir next', sans-serif;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* height: 0.01vh; */
+  width: 40%;
+  border-radius: 10px;
+  padding: 10px;
+  /* margin-bottom: 100px; */
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social img {
+  height: 50px;
+}
+
 .footer {
+  display: flex;
+  justify-content: space-evenly;
   width: 100%;
   height: 30px;
   padding: 20px;
