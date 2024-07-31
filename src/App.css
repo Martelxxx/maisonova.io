@@ -1,0 +1,320 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 30px;
+  background-color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+body {
+  /* background: linear-gradient(to bottom,rgb(173, 216, 230) 0%, white 100%); */
+  background-attachment: fixed;
+}
+
+.theme {
+  display: inline-flex;
+  justify-content: center;
+  width: 40%;
+  height: 0.01vh;
+  align-items: center;
+  border: 0.5px solid rgb(0, 163, 108);
+  padding: 5px 10px; /* Adjust padding as needed for spacing around the text */
+  margin: auto; /* Center the element horizontally */
+}
+
+.matinButton {
+  background: rgb(173, 216, 230);
+  color: rgb(255, 228, 196);
+}
+
+.matinButton:hover {
+  background: rgb(255, 255, 224);
+  color: rgb(135, 206, 235);
+  
+}
+
+.midiButton {
+  background: rgb(135, 206, 235);
+  color: rgb(255, 255, 224);
+}
+
+.midiButton:hover {
+  background: rgb(255, 228, 196);
+  color: rgb(173, 216, 230);
+}
+
+.soirButton {
+  background: rgb(25, 25, 112);
+  color: white;
+}
+
+.soirButton:hover {
+  background: white;
+  color: rgb(25, 25, 112);
+}
+
+.theme {
+  display: flex; /* Ensures buttons are lined up horizontally */
+  justify-content: center; /* Centers buttons */
+  align-items: center;
+  gap: 10px; /* Adds space between buttons */
+  padding: 0;
+  margin: 0;
+}
+
+.theme button {
+  border: 1px solid rgb(0, 163, 108);
+  border-right: none; /* Remove right border for all buttons except the last one */
+  border-radius: 5px 0 0 5px; /* Rounded corners on left side */
+  width: 100px;
+  height: 25px;
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  display: inline-block; /* Ensures buttons are in a line */
+  margin: 0; /* Removes any default margin */
+}
+
+/* Wrapper style */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.services {
+  border: 4px solid rgb(0, 163, 108);
+
+}
+
+.main {
+  font-size: 0.8rem;
+  font-weight: lighter;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 70vh;
+  width: 100%;
+  /* border-radius: 10px; */
+}
+
+.text1 {
+  font-family: 'Playfair Display', serif;
+  border: 1px solid rgb(0, 163, 108);
+  background: rgba(250, 249, 246, 0.1); 
+    backdrop-filter: blur(10px); 
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: lighter;
+  margin: 10px;
+  padding: 10px;
+}
+
+.section1 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* background-image: url('/src/assets/picture.jpeg'); */
+  background-size: cover;
+  height: 70vh;
+  width: 100%;
+  background-attachment: fixed;
+}
+
+.section2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* background-image: url('/src/assets/picture.jpeg'); */
+  background-size: cover;
+  height: 70vh;
+  width: 100%;
+  background-attachment: fixed;
+}
+
+.section3 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* background-image: url('/src/assets/picture.jpeg'); */
+  background-size: cover;
+  height: 70vh;
+  width: 100%;
+  background-attachment: fixed;
+}
+
+.service-form {
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-form .form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.service-form .form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.service-form .form-group:last-child {
+  margin-right: 0;
+}
+
+.service-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.service-form input[type="text"],
+.service-form input[type="email"],
+.service-form input[type="tel"] {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.service-form h3 {
+  margin-bottom: 10px;
+}
+
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  width: 48%;
+  margin-bottom: 10px;
+}
+
+.service-item input {
+  margin-right: 5px;
+}
+
+.service-form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007BFF;
+  color: white;
+}
+
+.service-form button:hover {
+  background-color: #0056b3;
+}
+
+.text2 {
+  font-family: 'avenir next', sans-serif;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(250, 249, 246, 0.1); 
+    backdrop-filter: blur(10px);
+  height: 320px;
+  width: 320px;
+  padding: 20px;
+}
+
+.title1 {
+  border: 1px solid rgb(0, 163, 108);
+  
+  background-image: url('/src/assets/bgabstract.jpeg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.elegant {
+  border: 1px solid rgb(0, 163, 108);
+  background: rgba(250, 249, 246, 0.1); 
+    backdrop-filter: blur(10px);
+  justify-items: center;
+  font-family: 'MonteCarlo', sans-serif;
+  font-size: 2.5rem;
+  font-weight: lighter;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* height: 0.01vh; */
+  width: 50%;
+  border-radius: 10px;
+  /* margin-bottom: 100px; */
+}
+
+.footer {
+  width: 100%;
+  height: 30px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  position: fixed;
+  bottom: 0;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/src/assets/fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/src/assets/fonts/Lato-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('/src/assets/fonts/Merriweather-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/src/assets/fonts/PlayfairDisplay-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'MonteCarlo';
+  src: url('/src/assets/fonts/MonteCarlo-Regular.ttf');
+}
