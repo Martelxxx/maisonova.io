@@ -1,4 +1,6 @@
 .navbar {
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: lighter;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,6 +18,23 @@
 .nav-links li a {
   text-decoration: none;
   color: #000;
+  position: relative; /* Required for positioning the ::after pseudo-element */
+  display: inline-block; /* Ensures the pseudo-element aligns correctly */
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px; /* Thickness of the underline */
+  background-color: midnightblue; /* Color of the underline */
+  bottom: -5px; /* Distance from the bottom of the element */
+  left: 0;
+  transition: width 0.3s ease; /* Smooth transition for the underline */
+}
+
+.nav-links li a:hover::after {
+  width: 100%; /* Full width on hover */
 }
 
 html, body {
@@ -34,10 +53,12 @@ body {
 
 .opening {
   font-family: 'Playfair Display', serif;
-  padding-left: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-top: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  text-align: justify;
 }
 
 .bar {
@@ -53,9 +74,18 @@ body {
   width: 40%;
   height: 0.01vh;
   align-items: center;
-  border: 0.5px solid rgb(0, 163, 108);
   padding: 5px 10px; /* Adjust padding as needed for spacing around the text */
   margin: auto; /* Center the element horizontally */
+  box-shadow: 
+    0 0 5px #ffd700, /* Bright gold */
+    0 0 10px #ffac33, /* Medium gold */
+    0 0 15px #cc8f00, /* Dark gold */
+    0 0 20px #ffd700, /* Bright gold */
+    0 0 25px #ffac33, /* Medium gold */
+    inset 0 0 5px #cc8f00, /* Inner shadow for depth */
+    inset 0 0 10px #ffd700; /* Inner bright for shine */
+  background-color: black; /* Optional: Background to enhance the gold effect */
+  color: white; /* Optional: Text color */
 }
 
 .matinButton {
@@ -216,8 +246,7 @@ body {
   font-family: 'Playfair Display', serif;
   border: 7px double white;
   background: rgba(250, 249, 246, 0.1); 
-    backdrop-filter: blur(10px); 
-  font-family: 'Playfair Display', serif;
+  backdrop-filter: blur(10px); 
   font-size: 1.1rem;
   font-weight: lighter;
   margin: 10px;
@@ -229,17 +258,38 @@ body {
   animation: pulsate 1.5s infinite;
   transition: all 0.5s ease;
   cursor: pointer; /* Optional: Changes the cursor on hover */
+  position: relative;
+  z-index: 1;
+}
+
+.text1::before {
+  content: '';
+  position: absolute;
+  top: -7px; /* Same as border width */
+  left: -7px; /* Same as border width */
+  right: -7px; /* Same as border width */
+  bottom: -7px; /* Same as border width */
+  background: url('/src/assets/goldborder.jpeg') no-repeat center;
+  background-size: cover;
+  border-radius: 50%;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.text1:hover::before {
+  opacity: 0;
 }
 
 @keyframes pulsate {
   0% {
-    transform: scale(1);
+      transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+      transform: scale(1.1);
   }
   100% {
-    transform: scale(1);
+      transform: scale(1);
   }
 }
 
@@ -267,7 +317,10 @@ body {
   height: 70vh;
   width: 100%;
   background-attachment: fixed;
-  border-bottom: 4px solid rgb(0, 163, 108);
+  border-bottom: 1px solid rgb(0, 163, 108);
+  border-image: url('/src/assets/goldborder.jpeg') 30 round;
+  border-image-repeat: center;
+
 }
 
 .section2 {
@@ -279,6 +332,7 @@ body {
   width: 100%;
   background-attachment: fixed;
   border-bottom: 4px solid rgb(0, 163, 108);
+  
 }
 
 .section3 {
@@ -372,26 +426,94 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(250, 249, 246, 0.1); 
-    backdrop-filter: blur(10px);
-  height: 320px;
-  width: 320px;
+  background: rgba(250, 249, 246, 0.1);
+  backdrop-filter: blur(10px);
+  height: 20px;
+  width: 20px;
   padding: 20px;
   border-radius: 50%;
-  height: 80px;
-  width: 80px;
+  border: 2px double white;
   overflow: hidden;
-  animation: pulsate 1.5s infinite;
   transition: all 0.5s ease;
   cursor: pointer; /* Optional: Changes the cursor on hover */
-  filter: blur(3px);
+  animation: pulsate 1.5s infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.text2::before {
+  content: '';
+  position: absolute;
+  top: -2px; /* Same as border width */
+  left: -2px; /* Same as border width */
+  right: -2px; /* Same as border width */
+  bottom: -2px; /* Same as border width */
+  background: url('/src/assets/goldborder.jpeg') no-repeat center;
+  background-size: cover;
+  border-radius: 50%;
+  z-index: -1;
+  transition: opacity 0.5s ease, background-image 0.5s ease;
+  opacity: 1;
+}
+
+.text2:hover::before {
+  opacity: 0;
+}
+
+/* Specific background images for each .text2 instance */
+.text2:nth-of-type(1)::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: url('/src/assets/townhouse.jpeg') no-repeat center;
+  background-size: cover;
+  /* border-radius: 50%; */
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.text2:nth-of-type(2)::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: url('/src/assets/crosssection.jpeg') no-repeat center;
+  background-size: cover;
+  /* border-radius: 50%; */
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.text2:nth-of-type(3)::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: url('/src/assets/aerial.jpeg') no-repeat center;
+  background-size: cover;
+  /* border-radius: 50%; */
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.text2:hover::after {
+  opacity: 1;
 }
 
 .text2:hover {
-  width: auto; /* Adjust based on your needs */
-  height: auto; /* Adjust based on your needs */
+  width: 300px; /* Adjust based on your needs */
+  height: 300px; /* Adjust based on your needs */
   border-radius: 0;
-  animation: none;
   filter: none;
 }
 
@@ -403,6 +525,7 @@ body {
 .text2:hover h1, .text2:hover p, .text2:hover button {
   opacity: 1;
 }
+
 
 .text3 {
   font-family: 'avenir next', sans-serif;
@@ -438,6 +561,11 @@ body {
   background-repeat: no-repeat;
 }
 
+.cta {
+  display: flex;
+  justify-content: space-around;
+}
+
 .serBut {
   background: rgb(0, 163, 108);
   color: white;
@@ -462,6 +590,8 @@ body {
 
 .cool2 {
   font-family: 'Avenir Next', sans-serif;
+  font-size: 0.9rem;
+  font-weight: lighter;
 }
 
 .elegant {
@@ -497,6 +627,11 @@ body {
   border-radius: 10px;
   padding: 10px;
   /* margin-bottom: 100px; */
+}
+
+.smallerTalk {
+  font-size: 0.9rem;
+  font-weight: lighter;
 }
 
 .social {

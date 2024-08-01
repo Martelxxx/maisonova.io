@@ -254,7 +254,10 @@ const App = () => {
         <p span className="cool2">Transform Your Listings with Breathtaking Visuals!</p>
         <p span className="cool2">Unlock the full potential of your properties with our premium services.</p>
         <p span className="cool2">Serving Realtors in DC, MD, and VA. Elevate your marketing game and captivate your audience today!</p>
+        <div className='cta'>
         <button className='serBut'>Services</button>
+        <button className='serBut'>Gallery</button>
+        </div>
       </p>
       <div className='discounts'>
       {/* <h3>Weekly Special</h3> */}
@@ -296,17 +299,17 @@ const App = () => {
         {/* <div className='services'> */}
           <div className='section1' style={section1Style}>
             <div className='text2'>
-              <img width="300" height="300" src={townhouse} alt="Video" />
+              {/* <img width="300" height="300" src={townhouse} alt="Video" /> */}
               {/* <h3>Traditional Imagery</h3>
               <p>Expertly crafted home photography to showcase your property's timeless beauty and charm.</p> */}
             </div>
             <div className='text2'>
-              <img width="300" height="300" src={crosssection} alt="Video" />
+              {/* <img width="300" height="300" src={crosssection} alt="Video" /> */}
               {/* <h3>3D Floor Plans</h3>
               <p>Innovative 3D floor plans to provide a comprehensive and immersive view of your property's layout.</p>             */}
               </div>
             <div className='text2'>
-              <img width="300" height="300" src={aerial} alt="Video" />
+              {/* <img width="300" height="300" src={aerial} alt="Video" /> */}
               {/* 3<p>Stunning aerial photography to capture breathtaking views and unique perspectives of your property.</p>             */}
               </div>
           </div>
@@ -415,9 +418,9 @@ const App = () => {
       {/* Footer */}
       
       <footer style={footerStyle} className="footer">
-        <p>Privacy | Terms & Conditions</p>
+        <p className='cool2'>Privacy | Terms & Conditions</p>
         {/* <img src={logo} alt="React Logo" style={{ width: 'auto', height: '70px', display: 'block', marginBottom: '10px' }} />         */}
-        <p>© 2024 Maisonova. All rights reserved.</p>
+        <p className='cool2'>© 2024 Maisonova. All rights reserved.</p>
       </footer>
     </>
   );
