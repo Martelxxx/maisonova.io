@@ -161,7 +161,7 @@ body {
 }
 
 .discounts::before {
-  content: 'Click here';
+  content: 'Click here!';
   position: absolute;
   width: 100%;
   height: 100%;
