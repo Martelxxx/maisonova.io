@@ -189,7 +189,7 @@ body {
   display: flex;
   justify-content: flex-end;
   overflow-x: auto;
-  width: 388%;
+  width: 428%;
   padding: 20px;
   gap: 20px; /* Ensures space between images */
   scroll-behavior: auto; /* Optional: Enables smooth scrolling */
@@ -201,7 +201,18 @@ body {
   flex: 0 0 auto; /* Prevents images from stretching or shrinking */
   width: 250px; /* Fixed width for each image */
   height: 250px; /* Fixed height for each image */
-  transition: transform 0.3s ease-in-out; /* Smooth transform transition */
+  transition: transform 2.3s ease-in-out; /* Smooth transform transition */
+  cursor: pointer;
+}
+
+.expanded {
+  width: 500px; /* 50% of the viewport width */
+  height: auto; /* Ensure it does not exceed the container's width */
+  z-index: 10; /* Ensure the expanded image is above others */
+  box-shadow: 10px 15px 10px rgba(0,0,0,0.8); /* Adds a shadow on the right side */
+  border: 2px double white; /* Adds a border around the image */
+  transform: scale(1.1); /* Scale the image up */
+  transition: transform 1.3s ease-in-out; /* Smooth transform transition */
 }
 
 .services {
@@ -312,6 +323,7 @@ body {
   z-index: -1;
   transition: opacity 0.5s ease;
   opacity: 1;
+  animation: none;
 }
 
 .text1:hover::before {
@@ -701,6 +713,7 @@ body {
   color: white;
   position: fixed;
   bottom: 0;
+  z-index: 100;
 }
 
 @font-face {

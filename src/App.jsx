@@ -109,6 +109,9 @@ const App = () => {
   // Initialize state for logo style
   const [logoStyle, setLogoStyle] = useState({ height: '100px', width: '100px', filter: '' });
 
+  // State to track the selected image
+  const [selectedImg, setSelectedImg] = useState(null);
+
   // Function to change background color and optionally logo style
   const changeBackgroundColor = (color, darkerColor, lighterColor, logoFilter = {}) => {
     setBackgroundStyle({
@@ -162,6 +165,12 @@ const App = () => {
       ...section3Style,
       backgroundImage: `url(${image})`,
     });
+  };
+
+  // Function to handle image click
+  const handleImgClick = (index) => {
+    // Toggle between the clicked image index and null
+    setSelectedImg(selectedImg === index ? null : index);
   };
 
   // Apply the background style to the body element
@@ -220,6 +229,9 @@ const App = () => {
     // Handle form submission (e.g., send data to server)
     console.log('Form submitted:', formState);
   };
+
+  const images = [a, b, c, d, e, f, g, h, i, j, k, l, m];
+
 
   return (
     <>
@@ -368,22 +380,18 @@ const App = () => {
       {/* </div> */}
 
       <div className='wrapper3'>
-        <div className='scroll-container'>
-          <img className='scrolls' src={a} alt="1" />
-          <img className='scrolls' src={b} alt="2" />
-          <img className='scrolls' src={c} alt="3" />
-          <img className='scrolls' src={d} alt="4" />
-          <img className='scrolls' src={e} alt="5" />
-          <img className='scrolls' src={f} alt="6" />
-          <img className='scrolls' src={g} alt="7" />
-          <img className='scrolls' src={h} alt="8" />
-          <img className='scrolls' src={i} alt="9" />
-          <img className='scrolls' src={j} alt="10" />
-          <img className='scrolls' src={k} alt="11" />
-          <img className='scrolls' src={l} alt="12" />
-          <img className='scrolls' src={m} alt="13" />
-        </div>
+      <div className='scroll-container'>
+        {images.map((src, index) => (
+          <img
+            key={index}
+            className={`scrolls ${selectedImg === index ? 'expanded' : ''}`}
+            src={src}
+            alt={index + 1}
+            onClick={() => handleImgClick(index)}
+          />
+        ))}
       </div>
+    </div>
 
       <div className='wrapper1'>
       <img src={barsep} alt="bar" className='bar' />
