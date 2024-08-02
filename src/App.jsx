@@ -18,6 +18,19 @@ import soirbg from './assets/soirbg.jpeg';
 import barsep from './assets/barsep.png';
 import insta from './assets/insta.png';
 import youtube from './assets/youtube.png';
+import a from './assets/1.jpg';
+import b from './assets/2.jpg';
+import c from './assets/3.jpg';
+import d from './assets/4.jpg';
+import e from './assets/5.jpg';
+import f from './assets/6.jpg';
+import g from './assets/7.jpg';
+import h from './assets/8.jpg';
+import i from './assets/9.jpg';
+import j from './assets/10.jpg';
+import k from './assets/11.jpg';
+import l from './assets/12.jpg';
+import m from './assets/13.jpg';
 import './App.css';
 
 const services = [
@@ -156,6 +169,18 @@ const App = () => {
     document.body.style.background = backgroundStyle.background;
     document.body.style.backgroundAttachment = backgroundStyle.backgroundAttachment;
   }, [backgroundStyle]);
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const scrollContainer = document.getElementById('scrollContainer');
+  
+    scrollContainer.addEventListener('scroll', () => {
+      // Check if the scroll is near the end of the container
+      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        // Reset scroll position to the start
+        scrollContainer.scrollLeft = 0;
+      }
+    });
+  });
 
   const [formState, setFormState] = useState({
     firstName: '',
@@ -305,7 +330,7 @@ const App = () => {
             </div>
             <div className='text2'>
               {/* <img width="300" height="300" src={crosssection} alt="Video" /> */}
-              {/* <h3>3D Floor Plans</h3>
+              {/* <p>Homes with etc</p>
               <p>Innovative 3D floor plans to provide a comprehensive and immersive view of your property's layout.</p>             */}
               </div>
             <div className='text2'>
@@ -322,38 +347,43 @@ const App = () => {
       <div className='text3'>
           {/* <img width="200" height="200" src={townhouse} alt="Traditional Imagery" /> */}
           <h3>Traditional Imagery</h3>
-          <p>Expertly crafted home photography to showcase your property's timeless beauty and charm.</p>
-          <p>Pricing:</p>
-          <ul>
-            <li>15 Photos (up to 1000 sq. ft): $114.00</li>
-            <li>20 Photos (1001-2000 sq. ft): $139.00</li>
-            <li>30 Photos (2001-3000 sq. ft): $189.00</li>
-            <li>50 Photos (3001-5000 sq. ft): $239.00</li>
-          </ul>
+          <p>High-quality photos enhance real estate listings, leading homes to sell 32% faster. They create strong first impressions, convey professionalism, and accurately showcase features, attracting more online engagement and extended viewing times. These photos help buyers form positive impressions and evoke emotional connections, fostering a desire to purchase. In a competitive market, they make listings stand out, prompt quicker decisions, and often result in higher sale prices, making professional photography a valuable investment.</p> 
         </div>
+
         <div className='text3'>
           {/* <img width="200" height="200" src={crosssection} alt="3D Floor Plans" /> */}
           <h3>3D Floor Plans</h3>
-          <p>Innovative 3D floor plans to provide a comprehensive and immersive view of your property's layout.</p>
-          <p>Pricing:</p>
-          <ul>
-            <li>2D Floor Plan (up to 2000 sq. ft): $100.00</li>
-            <li>3D Matterport (up to 2000 sq. ft): $200.00</li>
-          </ul>
-        </div>
+          <p>Homes with high-quality photos sell for $3,400 to $11,200 above the listing price. These photos create a strong first impression, attract more buyers, and highlight key features, making the property more appealing and likely to sell at a higher price.
+          </p>
+          <div><button className='cta2'>Book Now</button></div>
+          </div>
+
         <div className='text3'>
           {/* <img width="200" height="200" src={aerial} alt="Aerial Photography" /> */}
           <h3>Aerial Photography</h3>
-          <p>Stunning aerial photography to capture breathtaking views and unique perspectives of your property.</p>
-          <p>Pricing:</p>
-          <ul>
-            <li>Up to 20 photos: $250.00</li>
-            <li>Aerial Photography + Videography: $500.00</li>
-          </ul>
+          <p>Professional photography will land your home 61% more views compared to listings with lower-quality photos. High-quality images create a strong first impression, making your listing stand out and attracting more potential buyers. They accurately showcase the home's features, evoke emotional connections, and highlight the property's best aspects, leading to increased interest and engagement. This heightened visibility not only brings more viewers but also increases the chances of a quicker sale at a better price.</p>
         </div>
       </div>
       {/* </div> */}
       {/* </div> */}
+
+      <div className='wrapper3'>
+        <div className='scroll-container'>
+          <img className='scrolls' src={a} alt="1" />
+          <img className='scrolls' src={b} alt="2" />
+          <img className='scrolls' src={c} alt="3" />
+          <img className='scrolls' src={d} alt="4" />
+          <img className='scrolls' src={e} alt="5" />
+          <img className='scrolls' src={f} alt="6" />
+          <img className='scrolls' src={g} alt="7" />
+          <img className='scrolls' src={h} alt="8" />
+          <img className='scrolls' src={i} alt="9" />
+          <img className='scrolls' src={j} alt="10" />
+          <img className='scrolls' src={k} alt="11" />
+          <img className='scrolls' src={l} alt="12" />
+          <img className='scrolls' src={m} alt="13" />
+        </div>
+      </div>
 
       <div className='wrapper1'>
       <img src={barsep} alt="bar" className='bar' />
