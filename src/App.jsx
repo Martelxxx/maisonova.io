@@ -71,6 +71,9 @@ const App = () => {
   // Initialize state for main div style
   const [mainStyle, setMainStyle] = useState({
     backgroundImage: `url(${matin})`,
+    backgroundSize: '1200px 600px',
+    backgroundPosition: 'center',
+    // marginLeft: '300px',
   });
 
   const currentDiscount = getWeeklyDiscount();
@@ -87,8 +90,8 @@ const App = () => {
 
   // Initialize state for background style
   const [backgroundStyle, setBackgroundStyle] = useState({
-    background: 'linear-gradient(to bottom, rgb(173, 216, 230) 0%, rgb(255, 228, 196) 100%)',
-    backgroundAttachment: 'fixed',
+    background: 'linear-gradient(to bottom, rgb(173, 216, 230) 0%, rgb(255, 228, 196) 100%)', 
+    // backgroundAttachment: 'fixed',
   });
 
   // Initialize state of section3 background style
@@ -232,7 +235,6 @@ const App = () => {
 
   const images = [a, b, c, d, e, f, g, h, i, j, k, l, m];
 
-
   return (
     <>
       {/* Navbar */}
@@ -241,6 +243,7 @@ const App = () => {
         <ul className="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#offering">Offering</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#book">Book</a></li>
         </ul>
       </nav>
@@ -296,26 +299,28 @@ const App = () => {
         <button className='serBut'>Gallery</button>
         </div>
       </p>
-      <div className='discounts'>
+      {/* <div className='discounts'> */}
       {/* <h3>Weekly Special</h3> */}
       {/* <h3>{currentDiscount.name}</h3> */}
-      <p>{currentDiscount.description}</p>
-      
+      {/* <p>{currentDiscount.description}</p> */}
+      {/* </div> */}
       </div>
-      </div>
       
-      {/* <div className='wrapper'> */}
-        <div className='main' style={mainStyle}>
+      <div className='wrapper' style={backgroundStyle}>
+        <div className='main'>
+          <div className='test'style={mainStyle}>
           <div className='text1'>
             <h1>Showcase Your Home</h1>
             <p span className="cool2">Elevate your home with stunning visuals</p>
             <button className='bookbut'>Book Now</button>
           </div>
+          </div>
+          
         </div>
-      {/* </div> */}
+      </div>
 
       <div className='wrapper1'>
-      <img src={barsep} alt="bar" className='bar' />
+      {/* <img src={barsep} alt="bar" className='bar' /> */}
       </div>
 
       <div className='title1'>
@@ -330,39 +335,51 @@ const App = () => {
            Scene Selection: Highlight your property's best features effortlessly.
            Personalized Tips: Get staging advice to maximize appeal</p>
         </div>
+        
       </div>
 
-      <div className='wrapper'>
-        {/* <div className='services'> */}
-          <div className='section1' style={section1Style}>
+      <div className='knobs'>
             <div className='text2'>
-              {/* <img width="300" height="300" src={townhouse} alt="Video" /> */}
-              {/* <h3>Traditional Imagery</h3>
-              <p>Expertly crafted home photography to showcase your property's timeless beauty and charm.</p> */}
-            </div>
-            <div className='text2'>
-              {/* <img width="300" height="300" src={crosssection} alt="Video" /> */}
-              {/* <p>Homes with etc</p>
-              <p>Innovative 3D floor plans to provide a comprehensive and immersive view of your property's layout.</p>             */}
+              <img width="200" height="200" src={townhouse} alt="Traditional Imagery" />
+              <div className='type'>
+              <p>Traditional Imagery</p>
               </div>
-            <div className='text2'>
-              {/* <img width="300" height="300" src={aerial} alt="Video" /> */}
-              {/* 3<p>Stunning aerial photography to capture breathtaking views and unique perspectives of your property.</p>             */}
-              </div>
-          </div>
-        </div>
-      {/* </div> */}
 
-      {/* <div className='wrapper'> */}
-        {/* <div className='services'> */}
-      <div className='section2' style={section2Style}>
-      <div className='text3'>
+              <div className='type2'>
+              <p>Professional photography boosts listing appeal by 61%, showcasing your home's best features and attracting more buyers.</p>
+            </div>
+            </div>
+
+            <div className='text2'>
+              <img width="200" height="200" src={crosssection} alt="3D Floor Plans" />
+              <div className='type'>
+              <p>3D Floor Plans</p>
+              </div>
+
+              <div className='type2'>
+              <p>3D floor plans provide a detailed and interactive visual representation, enhancing real estate listings with precise layouts and immersive imagery.</p>
+            </div>
+            </div>
+
+            <div className='text2'>
+              <img width="200" height="200" src={aerial} alt="Aerial Photography" />
+              <div className='type'>
+              <p>Aerial Photography</p>
+              </div>
+
+              <div className='type2'>
+              <p>Aerial residential photography offers a unique bird's-eye view, enhancing real estate listings with visually striking and comprehensive imagery.</p>
+            </div>
+            
+            </div>
+            <div className='text4'>
+            <div className='text3' style={backgroundStyle}>
           {/* <img width="200" height="200" src={townhouse} alt="Traditional Imagery" /> */}
           <h3>Traditional Imagery</h3>
           <p>High-quality photos enhance real estate listings, leading homes to sell 32% faster. They create strong first impressions, convey professionalism, and accurately showcase features, attracting more online engagement and extended viewing times. These photos help buyers form positive impressions and evoke emotional connections, fostering a desire to purchase. In a competitive market, they make listings stand out, prompt quicker decisions, and often result in higher sale prices, making professional photography a valuable investment.</p> 
         </div>
 
-        <div className='text3'>
+        <div className='text3' style={backgroundStyle}>
           {/* <img width="200" height="200" src={crosssection} alt="3D Floor Plans" /> */}
           <h3>3D Floor Plans</h3>
           <p>Homes with high-quality photos sell for $3,400 to $11,200 above the listing price. These photos create a strong first impression, attract more buyers, and highlight key features, making the property more appealing and likely to sell at a higher price.
@@ -370,13 +387,47 @@ const App = () => {
           <div><button className='cta2'>Book Now</button></div>
           </div>
 
-        <div className='text3'>
+        <div className='text3' style={backgroundStyle}>
           {/* <img width="200" height="200" src={aerial} alt="Aerial Photography" /> */}
           <h3>Aerial Photography</h3>
           <p>Professional photography will land your home 61% more views compared to listings with lower-quality photos. High-quality images create a strong first impression, making your listing stand out and attracting more potential buyers. They accurately showcase the home's features, evoke emotional connections, and highlight the property's best aspects, leading to increased interest and engagement. This heightened visibility not only brings more viewers but also increases the chances of a quicker sale at a better price.</p>
         </div>
+        </div>
+          </div>
+
+          <div className='title1'>
+        <div className='title1cover'>
+      <p className='elegant'></p>
       </div>
-      {/* </div> */}
+      </div>
+
+      <div className='wrapper' style={backgroundStyle}>        
+          <div className='section1'>
+          {/* </div> */}
+        
+          <div className='test1'style={section1Style}></div>
+          <div className='test1' style={section2Style}>
+      
+      </div>
+          </div>
+          
+        </div>
+
+        <div className='title1'>
+        <div className='title1cover'>
+      <p className='elegant'>Gallery...</p>
+      </div>
+
+      {/* <div className='smallTalk'>
+      <p span className="cool2"><b>Transform Your Listings with AI-Powered Photography!</b>
+           <p>Elevate your property photos to the next level with our AI technology:</p>
+           Flawless Shots: AI ensures perfect angles and lighting for every photo.
+           Advanced Editing: Enhance colors and details for stunning images.
+           Scene Selection: Highlight your property's best features effortlessly.
+           Personalized Tips: Get staging advice to maximize appeal</p>
+        </div> */}
+        
+      </div>
       {/* </div> */}
 
       <div className='wrapper3'>
